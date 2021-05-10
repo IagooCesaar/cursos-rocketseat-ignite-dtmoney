@@ -1,4 +1,4 @@
-import { Container } from "../Header/styles";
+import { Container } from "./styles";
 import { Summary } from "../Summary";
 
 export function Dashboard() {
