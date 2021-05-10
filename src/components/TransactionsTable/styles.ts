@@ -18,10 +18,9 @@ export const Container = styled.div`
     td { 
       padding: 1rem 2rem;
       border: 0;
+      border-radius: 0.25rem;
       background: var(--shape);
       color: var(--text-body);
-
-      border-radius: 0.25rem;
 
       &:first-child {
         color: var(--text-title);
