@@ -23,6 +23,10 @@ export function TransactionsProvider({ children }: ITransactionProviderProps) {
       .then(response => setTransactions(response.data.transactions))
   }, [])
 
+  function createTransaction(transaction: ITransactionInput) {
+    api.post('/transactions', transaction)
+  }
+
   return (
     <TransactionsContext.Provider
       value={transactions}
