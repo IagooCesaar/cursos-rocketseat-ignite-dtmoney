@@ -21,11 +21,18 @@ interface ITransaction {
 
 type ITransactionInput = Omit<ITransaction, 'id' | 'createdAt'>
 
+interface ITransactionContextData {
+  transactions: ITransaction[];
+  createTransaction: (transaction: ITransactionInput) => void;
+}
+
 interface ITransactionProviderProps {
   children: ReactNode;
 }
 
-export const TransactionsContext = createContext<ITransaction[]>([]);
+export const TransactionsContext = createContext<ITransactionContextData>(
+  {} as ITransactionContextData
+);
 
 export function TransactionsProvider({ children }: ITransactionProviderProps) {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
@@ -40,7 +47,10 @@ export function TransactionsProvider({ children }: ITransactionProviderProps) {
 
   return (
     <TransactionsContext.Provider
-      value={transactions}
+      value={{
+        transactions,
+        createTransaction,
+      }}
     >
       {children}
     </TransactionsContext.Provider>
