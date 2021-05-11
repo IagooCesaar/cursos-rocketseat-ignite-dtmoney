@@ -10,6 +10,17 @@ interface ITransaction {
   createdAt: string;
 }
 
+// interface ITransactionInput {
+//   title: string;
+//   type: string;
+//   category: string;
+//   amount: number;
+// }
+
+// type ITransactionInput = Pick<ITransaction, 'title' | 'type' | 'category' | 'amount'>
+
+type ITransactionInput = Omit<ITransaction, 'id' | 'createdAt'>
+
 interface ITransactionProviderProps {
   children: ReactNode;
 }
