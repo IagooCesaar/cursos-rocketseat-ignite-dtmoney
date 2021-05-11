@@ -8,7 +8,7 @@ interface ITransaction {
   type: string;
   category: string;
   amount: number;
-  createdAt: Date;
+  createdAt: string;
 }
 
 export function TransactionsTable() {
