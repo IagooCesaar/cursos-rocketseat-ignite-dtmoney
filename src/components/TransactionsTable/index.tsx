@@ -40,7 +40,9 @@ export function TransactionsTable() {
                 }).format(transaction.amount)}
               </td>
               <td>{transaction.category}</td>
-              <td>{transaction.createdAt}</td>
+              <td>
+                {new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}
+              </td>
             </tr>
           ))}
         </tbody>
